@@ -6,7 +6,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [name, setName] = useState('');
   const [mail, setMail] = useState('');
-  const [password, setPassword] = useState(''); 
+  const [password, setPassword] = useState('');
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState('');
 
@@ -34,7 +34,7 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const newUser = { name, mail, comment, password };
+    const newUser = { name, mail, comment, password }; // Incluye contraseña
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
@@ -52,10 +52,28 @@ export default function Home() {
       const data = await response.json();
       setMessage('Usuario creado con éxito');
       setUsers([...users, data]); // Actualizar la lista de usuarios
-      setName('');  // Limpiar formulario
+      setName(''); // Limpiar formulario
       setMail('');
-      setPassword(''); 
       setComment('');
+      setPassword(''); // Limpiar contraseña
+    } catch (err) {
+      setMessage(`Error: ${err.message}`);
+    }
+  };
+
+  // Manejo de la eliminación de usuario
+  const handleDelete = async (userId) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${userId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al eliminar el usuario');
+      }
+
+      setMessage('Usuario eliminado con éxito');
+      setUsers(users.filter(user => user._id !== userId)); // Actualiza la lista filtrando el usuario eliminado
     } catch (err) {
       setMessage(`Error: ${err.message}`);
     }
@@ -69,7 +87,10 @@ export default function Home() {
       <h1>Lista de Usuarios</h1>
       <ul>
         {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
+          <li key={user._id}>
+            {user.name}
+            <button onClick={() => handleDelete(user._id)}>Eliminar</button> {/* Botón de eliminar */}
+          </li>
         ))}
       </ul>
 
@@ -88,16 +109,16 @@ export default function Home() {
           onChange={(e) => setMail(e.target.value)}
         />
         <input
-          type="password" 
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
           type="text"
           placeholder="Comentario"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Crear Usuario</button>
       </form>
