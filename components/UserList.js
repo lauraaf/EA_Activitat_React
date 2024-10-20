@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const UserList = ({ users, onDelete }) => {
+const UserList = ({ users, onDelete, onViewDetails }) => {
   return (
     <div>
       <h1>Lista de Usuarios</h1>
@@ -10,6 +10,7 @@ const UserList = ({ users, onDelete }) => {
         {users.map((user) => (
           <li key={user._id}>
             {user.name}
+            <button onClick={() => onViewDetails(user)}>Ver Detalles</button>
             <button onClick={() => onDelete(user._id)}>Eliminar</button>
           </li>
         ))}
@@ -19,3 +20,8 @@ const UserList = ({ users, onDelete }) => {
 };
 
 export default UserList;
+
+
+
+
+
