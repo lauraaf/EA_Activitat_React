@@ -164,17 +164,19 @@ export default function Home() {
   return (
     <div>
       <h1>Gestión de Usuarios y Experiencias</h1>
-      <div>
+      <div  className="button-container">
+        
         <button onClick={toggleUsers}>
           {showUsers ? 'Ocultar Usuarios' : 'Gestionar Usuarios'}
         </button>
+        
         <button onClick={toggleExperiencias}>
           {showExperiencias ? 'Ocultar Experiencias' : 'Gestionar Experiencias'}
         </button>
       </div>
 
       {showUsers && (
-        <div>
+        <div className="form-container">
           <h2>Usuarios</h2>
           {loading && <p>Cargando usuarios...</p>}
           {error && <p>Error: {error}</p>}
@@ -197,10 +199,10 @@ export default function Home() {
       )}
 
       {showExperiencias && (
-        <div>
+        <div className="form-container">
           <h2>Experiencias</h2>
-          {loading && <p>Cargando experiencias...</p>}
-          {error && <p>Error: {error}</p>}
+          {loading && <p className="loading">Cargando experiencias...</p>}
+          {error && <p className="error">Error: {error}</p>}
           {!loading && !error && (
             <>
               <ExperienciaList experiencias={experiencias} onDeleteExperience={handleDeleteExperience} />

@@ -5,13 +5,15 @@ import React from 'react';
 const UserList = ({ users, onDelete, onViewDetails }) => {
   return (
     <div>
-      <h1>Lista de Usuarios</h1>
+      <h2>Lista de Usuarios</h2>
       <ul>
         {users.map((user) => (
-          <li key={user._id}>
+          <li className="user-item" key={user._id}>
             {user.name}
-            <button onClick={() => onViewDetails(user)}>Ver Detalles</button>
-            <button onClick={() => onDelete(user._id)}>Eliminar</button>
+            <div className="button-group"> {/* Añadir un contenedor para los botones */}
+              <button className="button-small" onClick={() => onViewDetails(user)}>Ver Detalles</button>
+              <button className="button-small" onClick={() => onDelete(user._id)}>Eliminar</button>
+            </div>
           </li>
         ))}
       </ul>

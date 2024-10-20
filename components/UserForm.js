@@ -59,7 +59,7 @@ const UserForm = ({ onSubmit }) => {
           onChange={(e) => setComment(e.target.value)}
         />
         
-        <button type="submit">Crear Usuario</button>
+        <button type="submit" className='form'>Crear Usuario</button>
       </form>
       {message && <p>{message}</p>}
     </div>

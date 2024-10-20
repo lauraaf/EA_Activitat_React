@@ -47,7 +47,7 @@ export default function ExperienciaForm({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <div>
         <label>Descripción de la experiencia:</label>
-        <input 
+        <input className='formdiv'
           type="text" 
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -56,7 +56,7 @@ export default function ExperienciaForm({ onSubmit }) {
       
       <div>
         <label>Seleccionar dueño:</label>
-        <select value={owner} onChange={(e) => setOwner(e.target.value)}>
+        <select className='formdiv' value={owner} onChange={(e) => setOwner(e.target.value)}>
           <option value="">--Selecciona un usuario--</option>
           {users.map((user) => (
             <option key={user._id} value={user._id}>
@@ -68,7 +68,7 @@ export default function ExperienciaForm({ onSubmit }) {
 
       <div>
         <label>Seleccionar participantes:</label>
-        <select multiple value={participants} onChange={(e) => {
+        <select className='formdiv' multiple value={participants} onChange={(e) => {
           const selectedParticipants = Array.from(e.target.selectedOptions, option => option.value);
           setParticipants(selectedParticipants);
         }}>
