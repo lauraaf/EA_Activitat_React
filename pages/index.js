@@ -149,8 +149,6 @@ export default function Home() {
     }
   };
 
-  
-
   const toggleUsers = () => {
     setShowUsers(!showUsers);
     setShowExperiencias(false);
