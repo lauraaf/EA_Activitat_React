@@ -12,7 +12,7 @@ export default function ExperienciaForm({ onSubmit }) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`);
+        const response = await fetch(`http://localhost:3000/api/user`);
         const data = await response.json();
         setUsers(data);
         setLoadingUsers(false);
@@ -45,6 +45,7 @@ export default function ExperienciaForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2-form>Lista de Experiencias</h2-form>
       <div>
         <label>Descripción de la experiencia:</label>
         <input className='formdiv'

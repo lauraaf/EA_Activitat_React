@@ -27,8 +27,8 @@ const UserForm = ({ onSubmit }) => {
   };
 
   return (
-    <div>
-      <h2>Crear Nuevo Usuario</h2>
+    <div className="form-container" >
+      <h2-form className="h2-form">Crear Nuevo Usuario</h2-form>
       <form onSubmit={handleSubmit}>
 
         <input

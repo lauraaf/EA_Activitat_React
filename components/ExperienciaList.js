@@ -18,7 +18,7 @@ export default function ExperienciaList({ experiencias = [], onDeleteExperience 
 
   return (
     <div>
-      <h2>Lista de Experiencias</h2>
+      <h2-form>Lista de Experiencias</h2-form>
       <ul>
         {experiencias.map((exp) => (
           <li key={exp._id}>

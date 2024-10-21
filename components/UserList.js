@@ -10,7 +10,7 @@ const UserList = ({ users, onDelete, onViewDetails }) => {
         {users.map((user) => (
           <li className="user-item" key={user._id}>
             {user.name}
-            <div className="button-group"> {/* Añadir un contenedor para los botones */}
+            <div className="button-group"> 
               <button className="button-small" onClick={() => onViewDetails(user)}>Ver Detalles</button>
               <button className="button-small" onClick={() => onDelete(user._id)}>Eliminar</button>
             </div>

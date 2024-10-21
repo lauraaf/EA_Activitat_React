@@ -18,6 +18,43 @@ body {
   background-color: #f4f4f4;
 }
 
+.button-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+button.formdiv {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* Estilos para el contenedor principal */
+.container {
+  padding: 20px;
+}
+
+/* Estilos para el contenedor de contenido que incluye el formulario y los detalles */
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Estilos para el formulario */
+.form-section {
+  flex: 1;
+  margin-right: 20px; /* Espacio entre formulario y detalles */
+}
+
+/* Estilos para la sección de detalles */
+.details-section {
+  flex: 1;
+  border-left: 1px solid #ccc; /* Opcional: Una línea divisoria */
+  padding-left: 20px;
+}
+
+
 h1 {
   text-align: center;
   color: #000000;
@@ -25,8 +62,14 @@ h1 {
 }
 
 h2 {
-  color: #FAF3E0;
+  color: #920b28;
   margin: 10px 0;
+}
+
+h2-form {
+  color: #fffcc1;
+  margin: 10px 0;
+  font-size: 25px;
 }
 
 button {
