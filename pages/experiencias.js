@@ -6,12 +6,12 @@ export default function Experiencias() {
   const [experiencias, setExperiencias] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const URL = "http://localhost:3000/api/experiencias"
   useEffect(() => {
     setLoading(true);
     const fetchExperiencias = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/experiencias`);
+        const response = await fetch(URL);
         const data = await response.json();
         setExperiencias(data);
         setLoading(false);
@@ -27,7 +27,7 @@ export default function Experiencias() {
   const handleExperienciaSubmit = async (newExperiencia) => {
     //Crear experiencia
     try {
-        const response = await fetch(`http://localhost:3000/api/experiencias`, {
+        const response = await fetch(URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

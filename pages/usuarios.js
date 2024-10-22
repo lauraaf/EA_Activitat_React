@@ -7,12 +7,13 @@ export default function Usuarios() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
-
+  
+  const URL = "http://localhost:3000/api/user";
   useEffect(() => {
     setLoading(true);
     const fetchUsers = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/user`);
+        const response = await fetch(URL);
         const data = await response.json();
         setUsers(data);
         setLoading(false);
@@ -27,7 +28,7 @@ export default function Usuarios() {
 
   const handleUserSubmit = async (newUser) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/user`, {
+      const response = await fetch(URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
