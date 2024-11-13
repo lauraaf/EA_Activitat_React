@@ -40,7 +40,7 @@ export default function Experiencias() {
       }
 
       const data = await response.json();
-      setExperiencias([...experiencias, data]); // Actualiza la lista de experiencias
+      setExperiencias([...experiencias, data]); // Actualiza la llista de experiencies
     } catch (err) {
       console.error(err.message);
     }
@@ -56,12 +56,13 @@ export default function Experiencias() {
         throw new Error('Error al eliminar la experiencia');
       }
 
-      setExperiencias(experiencias.filter(exp => exp._id !== expId)); // Actualiza la lista
+      setExperiencias(experiencias.filter(exp => exp._id !== expId)); // Actualiza la llista
     } catch (err) {
       console.error(err);
     }
   };
 
+  //Afegim la funció per cirdar a la api per poder modificar experiencies
   const handleUpdateExperience = async (updatedExperience) => {
     try {
       const response = await fetch(`${URL}/${updatedExperience._id}`, {
@@ -77,7 +78,8 @@ export default function Experiencias() {
       }
 
       const data = await response.json();
-      setExperiencias(experiencias.map(exp => (exp._id === data._id ? data : exp))); // Actualiza la lista
+      setExperiencias(experiencias.map(exp => (exp._id === data._id ? data : exp))); // Actualiza la llista
+      fetchExperiencias();
     } catch (err) {
       console.error(err.message);
     }
@@ -93,7 +95,7 @@ export default function Experiencias() {
           <ExperienciaList 
             experiencias={experiencias} 
             onDeleteExperience={handleDeleteExperience} 
-            onUpdateExperience={handleUpdateExperience} // Pasa la función de actualización
+            onUpdateExperience={handleUpdateExperience} // Pasa la funció de actualizació
           />
           <ExperienciaForm onSubmit={handleExperienciaSubmit} />
         </>

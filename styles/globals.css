@@ -62,7 +62,7 @@ h1 {
 }
 
 h2 {
-  color: #920b28;
+  color: #310000;
   margin: 10px 0;
 }
 
@@ -119,6 +119,8 @@ button:hover {
   justify-content: center; /* Centra los botones horizontalmente */
   gap: 10px; /* Espacio entre los botones */
   margin-bottom: 20px; /* Espacio debajo del contenedor de botones */
+  margin-right: 20px; /* Ajusta el valor según sea necesario */
+  color: #8f4c4c;
 }
 
 .button-small {

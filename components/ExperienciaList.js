@@ -36,7 +36,7 @@ export default function ExperienciaList({ experiencias = [], onDeleteExperience,
             <p><strong>Dueño:</strong> {exp.owner}</p>
             <p><strong>Participantes:</strong> {exp.participants.join(', ')}</p>
             <button onClick={() => handleDelete(exp._id)}>Eliminar</button>
-            <button onClick={() => handleUpdate(exp)}>Modificar</button>
+            <button onClick={() => handleUpdate(exp)}>Modificar</button> {/*Boto per poder modificar experiencia*/}
           </li>
         ))}
       </ul>
